@@ -17,5 +17,12 @@ public class Partida {
     private Jugador[] jugadores = new Jugador[2];
     private Tablero tablero;
     
+    Partida(Jugador jugador1,Jugador jugador2){
+        jugadores[0]=jugador1;
+        jugadores[1]=jugador2;
+    }
+    
+    public 
+    
     
 }

@@ -71,6 +71,7 @@ public class Sesion {
     }
     
     public void crearPartida(Jugador jugador1,Jugador jugador2){
+        partidas.add(new Partida(jugador1,jugador2));
         
     }
 
