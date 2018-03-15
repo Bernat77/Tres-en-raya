@@ -14,7 +14,8 @@ import java.util.*;
 public class Partida {
     
     private Sesion sesion;
-    private ArrayList<Jugador> jugadores;
+    private Jugador[] jugadores = new Jugador[2];
+    private Tablero tablero;
     
     
 }

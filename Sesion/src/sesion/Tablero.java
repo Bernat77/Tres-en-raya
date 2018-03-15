@@ -10,5 +10,7 @@ package sesion;
  * @author dam1a14
  */
 public class Tablero {
+    private Partida partida;
+    private int[][] casillas;
     
 }

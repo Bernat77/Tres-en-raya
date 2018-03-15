@@ -11,12 +11,12 @@ package sesion;
  */
 public class Ranking {
     private int partidasJugadas;
-    private int ganadasHumano;
+    private int ganadas;
     private int empates;
     
     Ranking(){
        partidasJugadas=0;
-       ganadasHumano=0;
+       ganadas=0;
        empates=0;
     }
     
@@ -25,8 +25,8 @@ public class Ranking {
         System.out.print("*                                  *");
         System.out.print("*          *[RANKING]*             *");
         System.out.print("*Partidas jugadas: "+partidasJugadas+"                *");
-        System.out.print("*Partidas ganadas:*");
-        System.out.print("************************************");
+        System.out.print("*Partidas ganadas:*"+ganadas+"      *");
+        System.out.print("*Partidas empatadas: "+empates+"              *");
         System.out.print("************************************");
 
     }

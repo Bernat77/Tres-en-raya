@@ -13,6 +13,13 @@ import java.util.*;
 public class Jugador {
     private Sesion sesion;
     private Partida partida;
+    private String nombre;
+    
+    public Jugador(String nombre){
+        this.nombre=nombre;        
+    }
+    
+    
     
     
 }
