@@ -22,6 +22,30 @@ public class Partida {
         jugadores[1]=jugador2;
     }
     
+    public Sesion getSesion() {
+        return sesion;
+    }
+
+    public void setSesion(Sesion sesion) {
+        this.sesion = sesion;
+    }
+
+    public Jugador[] getJugadores() {
+        return jugadores;
+    }
+
+    public void setJugadores(Jugador[] jugadores) {
+        this.jugadores = jugadores;
+    }
+
+    public Tablero getTablero() {
+        return tablero;
+    }
+
+    public void setTablero(Tablero tablero) {
+        this.tablero = tablero;
+    }
+    
     public 
     
     

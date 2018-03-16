@@ -75,9 +75,8 @@ public class Sesion {
         
     }
 
-    public static void mostrarRanking() {
-        
-
+    public void mostrarRanking() {
+        ranking.mostrar();
     }
 
 }
