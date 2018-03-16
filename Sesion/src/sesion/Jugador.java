@@ -43,8 +43,17 @@ public class Jugador {
         this.nombre = nombre;
     }
     
-    
-    
-    
+    public Movimiento movimiento(int row, int col){
+        Movimiento jugada = new Movimiento();
+        jugada.setRow(row);
+        jugada.setCol(col);
+        jugada.setJugador(this);
+        if(this.getPartida().getJugador(0)==this){
+            jugada.setBlancas(true);
+        }else{
+            jugada.setBlancas(false);
+        }
+        return jugada;
+    }
     
 }

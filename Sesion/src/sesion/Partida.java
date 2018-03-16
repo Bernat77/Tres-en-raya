@@ -12,16 +12,18 @@ import java.util.*;
  * @author dam1a14
  */
 public class Partida {
-    
+
     private Sesion sesion;
-    private Jugador[] jugadores = new Jugador[2];
+    private Jugador[] jugadores;
     private Tablero tablero;
-    
-    Partida(Jugador jugador1,Jugador jugador2){
-        jugadores[0]=jugador1;
-        jugadores[1]=jugador2;
+    private static int jugadaActual;
+
+    Partida(Jugador jugador1, Jugador jugador2) {
+        jugadores = new Jugador[2];
+        jugadores[0] = jugador1;
+        jugadores[1] = jugador2;
     }
-    
+
     public Sesion getSesion() {
         return sesion;
     }
@@ -32,6 +34,10 @@ public class Partida {
 
     public Jugador[] getJugadores() {
         return jugadores;
+    }
+    
+    public Jugador getJugador(int i){
+        return jugadores[i];
     }
 
     public void setJugadores(Jugador[] jugadores) {
@@ -45,7 +51,7 @@ public class Partida {
     public void setTablero(Tablero tablero) {
         this.tablero = tablero;
     }
-    
+
     public 
     
     

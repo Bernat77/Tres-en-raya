@@ -16,10 +16,10 @@ public class Sesion {
     private Ranking ranking;
     private ArrayList<Partida> partidas;
     private ArrayList<Jugador> jugadores;
-    
-    Sesion(){
-        partidas=new ArrayList<Partida>();
-        jugadores=new ArrayList<Jugador>();
+
+    Sesion() {
+        partidas = new ArrayList<Partida>();
+        jugadores = new ArrayList<Jugador>();
     }
 
     public static void main(String[] args) {
@@ -42,8 +42,9 @@ public class Sesion {
         ventMenu();
         Scanner num = new Scanner(System.in);
         boolean menu = false;
-        int val = num.nextInt();
-        while (menu != true) {
+        int val;
+        do {
+            val = num.nextInt();
             if (val != 1 && val != 2 && val != 3) {
                 System.out.println("Escribe un número válido para las opciones");
             } else {
@@ -60,19 +61,17 @@ public class Sesion {
                         break;
                 }
             }
-            val = num.nextInt();
-        }
+        } while (!menu);
 
     }
-    
-    public void crearHumano(String nombre){
+
+    public void crearHumano(String nombre) {
         Jugador humano = new Jugador(nombre);
         jugadores.add(humano);
     }
-    
-    public void crearPartida(Jugador jugador1,Jugador jugador2){
-        partidas.add(new Partida(jugador1,jugador2));
-        
+
+    public void crearPartida(Jugador jugador1, Jugador jugador2) {
+        partidas.add(new Partida(jugador1, jugador2));
     }
 
     public void mostrarRanking() {

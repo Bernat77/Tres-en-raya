@@ -20,7 +20,6 @@ public class Tablero {
 
     public void mostrar() {
         for (int i = 0; i < casillas.length; i++) {
-            System.out.print("  _  _  _ ");
             for (int j = 0; j < casillas[i].length; j++) {
                 System.out.print("| " + casillas[i][j] + " |");
             }
@@ -28,9 +27,23 @@ public class Tablero {
         }
     }
 
-    public boolean getCasilla(int row, int col) {
-        
-        
+    public void move(Movimiento movi) {
+        if (validarMovimiento(movi)) {
+            casillas[movi.getRow()][movi.getRow()]=impFicha(movi.getBlancas());
+        }
+    }
+
+    public int impFicha(boolean ficha) {
+        if (ficha) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    public int getCasilla(int row, int col) {
+        return casillas[row][col];
+
     }
 
     public boolean comprobarGanador() {
@@ -116,18 +129,19 @@ public class Tablero {
         int col = movimiento.getCol();
         if (col < 3 && col >= 0) {
             if (row < 3 && row >= 0) {
-                return true;
+                return (validarCasillaVacia(row, col));
             }
         }
+        System.out.println("Este movimiento no es válido.");
         return false;
     }
 
     public boolean validarCasillaVacia(int row, int col) {
-        if (casillas[row][col] == 0) {
+        if (getCasilla(row, col) == 0) {
             return true;
         } else {
+            System.out.println("En esta casilla ya hay una ficha.");
             return false;
         }
     }
-
 }
