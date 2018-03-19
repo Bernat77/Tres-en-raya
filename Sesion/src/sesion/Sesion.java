@@ -50,17 +50,16 @@ public class Sesion {
         this.jugadores = jugadores;
     }
 
-    
-    
-    
     public void ventMenu() {
 
         System.out.println("************************************");
-        System.out.println("************************************");
-        System.out.println("************************************");
-        System.out.println("************************************");
-        System.out.println("************************************");
-        System.out.println("************************************");
+        System.out.println("*XOX     XOO     OOO    XXO     OXX*");
+        System.out.println("*       *|||TRES EN RAYA|||*       *");
+        System.out.println("*                                  *");
+        System.out.println("**********--Opciones--**************");
+        System.out.println("*1. Nueva partida                  *");
+        System.out.println("*2. Ranking                        *");
+        System.out.println("*3. Salir                          *");
         System.out.println("************************************");
     }
 
@@ -74,12 +73,13 @@ public class Sesion {
 
         ventMenu();
         Scanner num = new Scanner(System.in);
+        System.out.println("*Introduce una opción:             *");
         boolean menu = false;
         int val;
         do {
             val = num.nextInt();
             if (val != 1 && val != 2 && val != 3) {
-                System.out.println("Escribe un número válido para las opciones");
+                System.out.println("/!/Introduce un número válido para las opciones/!/:");
             } else {
                 menu = true;
                 switch (val) {
@@ -90,6 +90,10 @@ public class Sesion {
                         mostrarRanking();
                         break;
                     case 3:
+                        System.out.println("*------------------------*");
+                        System.out.println("|     ¡Vuelve pronto!    |");
+                        System.out.println("*------------------------*");
+                        System.out.println("                  ©2018 Bernat Salleras López");
                         break;
                 }
             }
@@ -136,28 +140,31 @@ public class Sesion {
     }
 
     public void empezar() {
-
+        System.out.println("***********Nueva partida************\n");
         Scanner nom = new Scanner(System.in);
         System.out.println("Introduce tu nombre:");
         Partida partida = crearPartida(crearHumano(nom.next()), crearIA());
+        System.out.println("\n************--START--***************\n");
         partida.jugar();
-        System.out.println("La partida ha acabado.");
+        System.out.println("\nLa partida ha terminado.\n");
         menuVolver();
 
     }
 
     public void menuVolver() {
 
-        System.out.println("Introduce una opción:");
-        System.out.println("1. Volver al menú");
-        System.out.println("2. Salir del juego");
+        System.out.println("**********--Opciones--**************");
+        System.out.println("*1. Volver al menú                 *");
+        System.out.println("*2. Salir del juego                *");
         Scanner num = new Scanner(System.in);
+        System.out.println("************************************");
+        System.out.println("*Introduce una opción:             *");
         boolean menu = false;
         int val;
         do {
             val = num.nextInt();
             if (val != 1 && val != 2) {
-                System.out.println("Escribe un número válido para las opciones");
+                System.out.println("/!/Introduce un número válido para las opciones/!/");
             } else {
                 menu = true;
                 switch (val) {
@@ -165,6 +172,10 @@ public class Sesion {
                         menu();
                         break;
                     case 2:
+                        System.out.println("*------------------------*");
+                        System.out.println("|     ¡Vuelve pronto!    |");
+                        System.out.println("*------------------------*");
+                        System.out.println("                  ©2018 Bernat Salleras López");
                         break;
                 }
             }

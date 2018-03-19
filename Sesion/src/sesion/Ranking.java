@@ -25,8 +25,8 @@ public class Ranking {
         
         System.out.println();
         System.out.println("************************************");
+        System.out.println("*         !*[RANKING]*!            *");
         System.out.println("*                                  *");
-        System.out.println("*          *[RANKING]*             *");
         System.out.println("*Partidas jugadas:   "+partidasJugadas+"             *");
         System.out.println("*Partidas ganadas:   "+ganadas+"             *");
         System.out.println("*Partidas empatadas: "+empates+"             *");
@@ -66,6 +66,23 @@ public class Ranking {
     public void setEmpates(int empates) {
         this.empates = empates;
     }
+    
+    public void upgPartidasJugadas(){
+        this.partidasJugadas++;
+    }
+    
+    public void upgGanadas(){
+        this.ganadas++;
+    }
+    
+    public void upgEmpates(){
+        this.empates++;
+    }
+    
+    
+    
+    
+    
     
     
     

@@ -17,29 +17,38 @@ public class Tablero {
     public Tablero() {
         casillas = new int[3][3];
     }
-    
-    
-    public void setPartida(Partida partida){
-        this.partida=partida;
+
+    public void setPartida(Partida partida) {
+        this.partida = partida;
     }
-    
-    public Partida getPartida(){
-        return partida;    
-}
+
+    public Partida getPartida() {
+        return partida;
+    }
 
     public void mostrar() {
+        System.out.println(" _________");
         for (int i = 0; i < casillas.length; i++) {
+            System.out.print("|");
             for (int j = 0; j < casillas[i].length; j++) {
-                System.out.print("| " + casillas[i][j] + " |");
+                if (casillas[i][j] == 0) {
+                    System.out.print(" · ");
+                } else if (casillas[i][j] == 1) {
+                    System.out.print(" O ");
+                } else if (casillas[i][j] == -1) {
+                    System.out.print(" X ");
+                }
             }
+            System.out.print("|");
             System.out.println();
         }
+        System.out.println(" ¯¯¯¯¯¯¯¯¯");
         System.out.println();
     }
 
     public void move(Movimiento movi) {
         if (validarMovimiento(movi)) {
-            casillas[movi.getRow()][movi.getCol()]=impFicha(movi.getBlancas());
+            casillas[movi.getRow()][movi.getCol()] = impFicha(movi.getBlancas());
         }
     }
 
@@ -68,7 +77,7 @@ public class Tablero {
 
     public boolean comprobarFichas(int[] fichas) {
         for (int i = 1; i < fichas.length; i++) {
-            if (fichas[i - 1] != fichas[i]) {
+            if (fichas[i - 1] != fichas[i] || fichas[i - 1] == 0) {
                 return false;
             }
         }
@@ -125,7 +134,7 @@ public class Tablero {
 
     public boolean comprobarLleno() {
         for (int i = 0; i < casillas.length; i++) {
-            for (int j = 0; j < casillas.length; j++) {
+            for (int j = 0; j < casillas[i].length; j++) {
                 if (casillas[i][j] == 0) {
                     return false;
                 }
