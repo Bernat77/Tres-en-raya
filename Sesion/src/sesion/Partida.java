@@ -16,12 +16,14 @@ public class Partida {
     private Sesion sesion;
     private Jugador[] jugadores;
     private Tablero tablero;
-    private static int jugadaActual;
+    private int jugadaActual;
+    private boolean turno;
 
     Partida(Jugador jugador1, Jugador jugador2) {
         jugadores = new Jugador[2];
         jugadores[0] = jugador1;
         jugadores[1] = jugador2;
+        jugadaActual=0;
     }
 
     public Sesion getSesion() {
@@ -52,7 +54,26 @@ public class Partida {
         this.tablero = tablero;
     }
 
-    public 
+    public boolean isTurno() {
+        return turno;
+    }
+
+    public void setTurno(boolean turno) {
+        this.turno = turno;
+    }
+    
+    
+    
+    public void crearTablero(){
+        Tablero tablero = new Tablero();
+        tablero.setPartida(this);
+        setTablero(tablero);
+    }
+
+    public void jugar(){
+        crearTablero();
+        
+    }
     
     
 }

@@ -17,6 +17,15 @@ public class Tablero {
     public Tablero() {
         casillas = new int[3][3];
     }
+    
+    
+    public void setPartida(Partida partida){
+        this.partida=partida;
+    }
+    
+    public Partida getPartida(){
+        return partida;    
+}
 
     public void mostrar() {
         for (int i = 0; i < casillas.length; i++) {
@@ -46,13 +55,13 @@ public class Tablero {
 
     }
 
+    public int[][] getCasillas() {
+        return casillas;
+    }
+
     public boolean comprobarGanador() {
 
-        if (comprobarFilas() || comprobarColum() || comprobarDiag()) {
-            return true;
-        }
-
-        return false;
+        return (comprobarFilas() || comprobarColum() || comprobarDiag());
 
     }
 

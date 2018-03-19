@@ -9,6 +9,22 @@ package sesion;
  *
  * @author dam1a14
  */
-public class IA0 {
-    
+public class IA0 extends Jugador {
+
+    public IA0() {
+
+    }
+
+    public Movimiento movimientoia(Tablero tablero) {
+        int[][] casillas = tablero.getCasillas();
+        for (int i = 0; i < casillas.length; i++) {
+            for (int j = 0; i < casillas[i].length; j++) {
+                if (tablero.getCasilla(i, j) == 0) {
+                    return movimiento(i, j);
+                }
+            }
+        }
+        return null;
+    }
+
 }

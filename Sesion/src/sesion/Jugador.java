@@ -15,8 +15,7 @@ public class Jugador {
     private Partida partida;
     private String nombre;
     
-    public Jugador(String nombre){
-        this.nombre=nombre;        
+    public Jugador(){        
     }
 
     public Sesion getSesion() {
@@ -55,5 +54,4 @@ public class Jugador {
         }
         return jugada;
     }
-    
 }
