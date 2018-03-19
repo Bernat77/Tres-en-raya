@@ -26,6 +26,33 @@ public class Sesion {
         inicio();
     }
 
+    public Ranking getRanking() {
+        return ranking;
+    }
+
+    public void setRanking(Ranking ranking) {
+        this.ranking = ranking;
+    }
+
+    public ArrayList<Partida> getPartidas() {
+        return partidas;
+    }
+
+    public void setPartidas(ArrayList<Partida> partidas) {
+        this.partidas = partidas;
+    }
+
+    public ArrayList<Jugador> getJugadores() {
+        return jugadores;
+    }
+
+    public void setJugadores(ArrayList<Jugador> jugadores) {
+        this.jugadores = jugadores;
+    }
+
+    
+    
+    
     public void ventMenu() {
 
         System.out.println("************************************");

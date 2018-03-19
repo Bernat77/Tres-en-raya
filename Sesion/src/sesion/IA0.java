@@ -15,12 +15,17 @@ public class IA0 extends Jugador {
 
     }
 
-    public Movimiento movimientoia(Tablero tablero) {
+    public Movimiento movimiento(Tablero tablero) {
         int[][] casillas = tablero.getCasillas();
+        Movimiento jugada = new Movimiento();
         for (int i = 0; i < casillas.length; i++) {
-            for (int j = 0; i < casillas[i].length; j++) {
+            for (int j = 0; j < casillas[i].length; j++) {
                 if (tablero.getCasilla(i, j) == 0) {
-                    return movimiento(i, j);
+                    jugada.setRow(i);
+                    jugada.setCol(j);
+                    jugada.setJugador(this);
+                    jugada.setBlancas(false);
+                    return jugada;
                 }
             }
         }

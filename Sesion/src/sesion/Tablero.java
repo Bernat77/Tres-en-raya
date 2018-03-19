@@ -34,11 +34,12 @@ public class Tablero {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     public void move(Movimiento movi) {
         if (validarMovimiento(movi)) {
-            casillas[movi.getRow()][movi.getRow()]=impFicha(movi.getBlancas());
+            casillas[movi.getRow()][movi.getCol()]=impFicha(movi.getBlancas());
         }
     }
 
@@ -46,7 +47,7 @@ public class Tablero {
         if (ficha) {
             return 1;
         } else {
-            return 0;
+            return -1;
         }
     }
 
@@ -124,7 +125,7 @@ public class Tablero {
 
     public boolean comprobarLleno() {
         for (int i = 0; i < casillas.length; i++) {
-            for (int j = 0; i < casillas.length; j++) {
+            for (int j = 0; j < casillas.length; j++) {
                 if (casillas[i][j] == 0) {
                     return false;
                 }
