@@ -13,17 +13,15 @@ import java.util.*;
  */
 public class Partida {
 
-    private Sesion sesion;
-    private Jugador[] jugadores;
-    private Tablero tablero;
-    private int jugadaActual;
     private boolean turno;
+    private Jugador[] jugadores;
+    private Sesion sesion;
+    private Tablero tablero;
 
     Partida(Jugador jugador1, Jugador jugador2) {
         jugadores = new Jugador[2];
         jugadores[0] = jugador1;
         jugadores[1] = jugador2;
-        jugadaActual = 0;
     }
 
     public Sesion getSesion() {
@@ -83,7 +81,7 @@ public class Partida {
                 if (tablero.validarMovimiento(getJugador(0).movimiento(row, col))) {
                     tablero.move(getJugador(0).movimiento(row, col));
                 } else {
-                    ganado=true;
+                    ganado = true;
                     this.sesion.getRanking().upgPartidasJugadas();
                     System.out.println("Has perdido...");
                     break;

@@ -13,9 +13,9 @@ import java.util.*;
  */
 public class Sesion {
 
-    private Ranking ranking;
-    private ArrayList<Partida> partidas;
     private ArrayList<Jugador> jugadores;
+    private ArrayList<Partida> partidas;
+    private Ranking ranking;
 
     Sesion() {
         partidas = new ArrayList<Partida>();
@@ -50,55 +50,10 @@ public class Sesion {
         this.jugadores = jugadores;
     }
 
-    public void ventMenu() {
-
-        System.out.println("************************************");
-        System.out.println("*XOX     XOO     OOO    XXO     OXX*");
-        System.out.println("*       *|||TRES EN RAYA|||*       *");
-        System.out.println("*                                  *");
-        System.out.println("**********--Opciones--**************");
-        System.out.println("*1. Nueva partida                  *");
-        System.out.println("*2. Ranking                        *");
-        System.out.println("*3. Salir                          *");
-        System.out.println("************************************");
-    }
-
-    public static void inicio() {
-        Sesion sesion = new Sesion();
-        sesion.crearRanking();
-        sesion.menu();
-    }
-
-    public void menu() {
-
-        ventMenu();
-        Scanner num = new Scanner(System.in);
-        System.out.println("*Introduce una opción:             *");
-        boolean menu = false;
-        int val;
-        do {
-            val = num.nextInt();
-            if (val != 1 && val != 2 && val != 3) {
-                System.out.println("/!/Introduce un número válido para las opciones/!/:");
-            } else {
-                menu = true;
-                switch (val) {
-                    case 1:
-                        empezar();
-                        break;
-                    case 2:
-                        mostrarRanking();
-                        break;
-                    case 3:
-                        System.out.println("*------------------------*");
-                        System.out.println("|     ¡Vuelve pronto!    |");
-                        System.out.println("*------------------------*");
-                        System.out.println("                  ©2018 Bernat Salleras López");
-                        break;
-                }
-            }
-        } while (!menu);
-
+    public IA0 crearIA() {
+        IA0 ia = new IA0();
+        ia.setSesion(this);
+        return ia;
     }
 
     public Jugador crearHumano(String nombre) {
@@ -107,12 +62,6 @@ public class Sesion {
         jugador.setSesion(this);
         jugadores.add(jugador);
         return jugador;
-    }
-
-    public IA0 crearIA() {
-        IA0 ia = new IA0();
-        ia.setSesion(this);
-        return ia;
     }
 
     public Partida crearPartida(Jugador jugador1, Jugador jugador2) {
@@ -131,14 +80,6 @@ public class Sesion {
         ranking.setSesion(this);
     }
 
-    public void mostrarRanking() {
-        ranking.mostrar();
-    }
-
-    public boolean sorteoTurno() {
-        return (Math.random() < 0.5);
-    }
-
     public void empezar() {
         System.out.println("***********Nueva partida************\n");
         Scanner nom = new Scanner(System.in);
@@ -151,9 +92,83 @@ public class Sesion {
 
     }
 
+    public static void inicio() {
+        Sesion sesion = new Sesion();
+        sesion.crearRanking();
+        sesion.menu();
+    }
+
+    public void instrucciones() {
+        System.out.println("************************************");
+        System.out.println("*         |Instrucciones|          *");
+        System.out.println("*                                  *");
+        System.out.println("*                                  *");
+        System.out.println("*Bienvenido al tres en raya.       *");
+        System.out.println("*Una vez que comience el juego se  *");
+        System.out.println("*decidirá aleatoriamente cuál de   *");
+        System.out.println("*los participantes comenzará.      *");
+        System.out.println("*Cuando le toque a usted, se le    *");
+        System.out.println("*pedirá que introduzca la fila y la*");
+        System.out.println("*columna que hagan referencia a la *");
+        System.out.println("*casilla donde desea realizar su   *");
+        System.out.println("*movimiento. Los rangos para ambos *");
+        System.out.println("*van del 1 al 3, pues el tablero   *");
+        System.out.println("*tiene 3 filas y 3 columnas. Usted *");
+        System.out.println("*deberá introducir un movimiento   *");
+        System.out.println("*válido o por el contrario, usted  *");
+        System.out.println("*perderá la partida inmediatamente.*");
+        System.out.println("*                                  *");
+        System.out.println("*                    -Buena suerte.*");
+        menuVolver();
+
+    }
+
+    public void menu() {
+
+        ventMenu();
+        Scanner num = new Scanner(System.in);
+        System.out.println("*Introduce una opción:             *");
+        boolean menu = false;
+        int val;
+        do {
+            val = num.nextInt();
+            if (val != 1 && val != 2 && val != 3 && val != 4) {
+                System.out.println("/!/Introduce un número válido para las opciones/!/:");
+
+            } else {
+                menu = true;
+                switch (val) {
+                    case 1:
+                        empezar();
+                        break;
+                    case 2:
+                        mostrarRanking();
+                        break;
+                    case 3:
+                        instrucciones();
+                    case 4:
+                        System.out.println("*------------------------*");
+                        System.out.println("|     ¡Vuelve pronto!    |");
+                        System.out.println("*------------------------*");
+                        System.out.println("                  ©2018 Bernat Salleras López");
+                        break;
+                }
+            }
+        } while (!menu);
+
+    }
+
+    public void mostrarRanking() {
+        ranking.mostrar();
+    }
+
+    public boolean sorteoTurno() {
+        return (Math.random() < 0.5);
+    }
+
     public void menuVolver() {
 
-        System.out.println("**********--Opciones--**************");
+        System.out.println("***********--Opciones--*************");
         System.out.println("*1. Volver al menú                 *");
         System.out.println("*2. Salir del juego                *");
         Scanner num = new Scanner(System.in);
@@ -181,6 +196,20 @@ public class Sesion {
             }
         } while (!menu);
 
+    }
+
+    public void ventMenu() {
+
+        System.out.println("************************************");
+        System.out.println("*XOX     XOO     OOO    XXO     OXX*");
+        System.out.println("*       *|||TRES EN RAYA|||*       *");
+        System.out.println("*                                  *");
+        System.out.println("**********--Opciones--**************");
+        System.out.println("*1. Nueva partida                  *");
+        System.out.println("*2. Ranking                        *");
+        System.out.println("*3. Instrucciones                  *");
+        System.out.println("*4. Salir                          *");
+        System.out.println("************************************");
     }
 
 }

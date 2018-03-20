@@ -1,46 +1,46 @@
-
 package sesion;
 
 public class Movimiento {
-    private Jugador jugador;
+
     private boolean blancas;
-    private int row;
     private int col;
-    
-    Movimiento(){
-        
+    private int row;
+    private Jugador jugador;
+
+    Movimiento() {
+
     }
-    
-    public void setJugador(Jugador jugador){
-        this.jugador=jugador;
+
+    public void setJugador(Jugador jugador) {
+        this.jugador = jugador;
     }
-    
-    public void setBlancas(boolean blanca){
-        blancas=blanca;
+
+    public void setBlancas(boolean blanca) {
+        blancas = blanca;
     }
-    
-    public void setRow(int r){
-        row=r;
+
+    public void setRow(int r) {
+        row = r;
     }
-    
-    public void setCol(int c){
-        col=c;
+
+    public void setCol(int c) {
+        col = c;
     }
-    
-    public Jugador getJugador(){
+
+    public Jugador getJugador() {
         return jugador;
     }
-    
-    public boolean getBlancas(){
+
+    public boolean getBlancas() {
         return blancas;
     }
-    
-    public int getRow(){
+
+    public int getRow() {
         return row;
     }
-    
-    public int getCol(){
+
+    public int getCol() {
         return col;
     }
-    
+
 }

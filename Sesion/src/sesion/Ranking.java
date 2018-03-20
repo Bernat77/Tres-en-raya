@@ -10,29 +10,16 @@ package sesion;
  * @author dam1a14
  */
 public class Ranking {
-    private Sesion sesion;
-    private int partidasJugadas;
-    private int ganadas;
-    private int empates;
-    
-    Ranking(){
-       partidasJugadas=0;
-       ganadas=0;
-       empates=0;
-    }
-    
-    public void mostrar(){
-        
-        System.out.println();
-        System.out.println("************************************");
-        System.out.println("*         !*[RANKING]*!            *");
-        System.out.println("*                                  *");
-        System.out.println("*Partidas jugadas:   "+partidasJugadas+"             *");
-        System.out.println("*Partidas ganadas:   "+ganadas+"             *");
-        System.out.println("*Partidas empatadas: "+empates+"             *");
-        System.out.println("************************************");
-        this.sesion.menuVolver();
 
+    private int empates;
+    private int ganadas;
+    private int partidasJugadas;
+    private Sesion sesion;
+
+    Ranking() {
+        partidasJugadas = 0;
+        ganadas = 0;
+        empates = 0;
     }
 
     public Sesion getSesion() {
@@ -66,28 +53,30 @@ public class Ranking {
     public void setEmpates(int empates) {
         this.empates = empates;
     }
-    
-    public void upgPartidasJugadas(){
+
+    public void mostrar() {
+
+        System.out.println();
+        System.out.println("************************************");
+        System.out.println("*         !*[RANKING]*!            *");
+        System.out.println("*                                  *");
+        System.out.println("*Partidas jugadas:   " + partidasJugadas + "             *");
+        System.out.println("*Partidas ganadas:   " + ganadas + "             *");
+        System.out.println("*Partidas empatadas: " + empates + "             *");
+        this.sesion.menuVolver();
+
+    }
+
+    public void upgPartidasJugadas() {
         this.partidasJugadas++;
     }
-    
-    public void upgGanadas(){
+
+    public void upgGanadas() {
         this.ganadas++;
     }
-    
-    public void upgEmpates(){
+
+    public void upgEmpates() {
         this.empates++;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
 }
