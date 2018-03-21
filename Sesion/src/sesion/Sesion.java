@@ -50,10 +50,22 @@ public class Sesion {
         this.jugadores = jugadores;
     }
 
-    public IA0 crearIA() {
-        IA0 ia = new IA0();
-        ia.setSesion(this);
-        return ia;
+    public Jugador crearIA(int n) {
+
+        IA0 ia;
+
+        switch (n) {
+            case 0:
+                ia = new IA0();
+                ia.setSesion(this);
+                return ia;
+            case 1:
+                ia = new IA1();
+                ia.setSesion(this);
+                return ia;
+        }
+
+        return null;
     }
 
     public Jugador crearHumano(String nombre) {
@@ -83,8 +95,9 @@ public class Sesion {
     public void empezar() {
         System.out.println("***********Nueva partida************\n");
         Scanner nom = new Scanner(System.in);
+        Scanner ia = new Scanner(System.in);
         System.out.println("Introduce tu nombre:");
-        Partida partida = crearPartida(crearHumano(nom.next()), crearIA());
+        Partida partida = crearPartida(crearHumano(nom.next()), crearIA(ia.nextInt()));
         System.out.println("\n************--START--***************\n");
         partida.jugar();
         System.out.println("\nLa partida ha terminado.\n");
@@ -196,6 +209,15 @@ public class Sesion {
             }
         } while (!menu);
 
+    }
+    
+    public void ventIA(){
+        System.out.println("************************************");
+        System.out.println("*     Selecciona la dificultad:     ");
+        System.out.println("*                                   ");
+        System.out.println("*0.Babymode                         ");
+        System.out.println("*1.Fácil                            ");
+        
     }
 
     public void ventMenu() {
