@@ -55,11 +55,11 @@ public class Sesion {
         IA0 ia;
 
         switch (n) {
-            case 0:
+            case 1:
                 ia = new IA0();
                 ia.setSesion(this);
                 return ia;
-            case 1:
+            case 2:
                 ia = new IA1();
                 ia.setSesion(this);
                 return ia;
@@ -94,10 +94,23 @@ public class Sesion {
 
     public void empezar() {
         System.out.println("***********Nueva partida************\n");
-        Scanner nom = new Scanner(System.in);
-        Scanner ia = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
+        ventIA();
+        int ia;
+        boolean selec = false;
+        System.out.println("*Introduce una opción:             *");
+        do {
+            ia = scan.nextInt();
+            if (ia != 1 && ia != 2) {
+                System.out.println("Por favor, introduce un número válido.");
+            } else {
+                selec = true;
+            }
+
+        } while (!selec);
+
         System.out.println("Introduce tu nombre:");
-        Partida partida = crearPartida(crearHumano(nom.next()), crearIA(ia.nextInt()));
+        Partida partida = crearPartida(crearHumano(scan.next()), crearIA(ia));
         System.out.println("\n************--START--***************\n");
         partida.jugar();
         System.out.println("\nLa partida ha terminado.\n");
@@ -210,14 +223,14 @@ public class Sesion {
         } while (!menu);
 
     }
-    
-    public void ventIA(){
+
+    public void ventIA() {
         System.out.println("************************************");
-        System.out.println("*     Selecciona la dificultad:     ");
-        System.out.println("*                                   ");
-        System.out.println("*0.Babymode                         ");
-        System.out.println("*1.Fácil                            ");
-        
+        System.out.println("*    Selecciona la dificultad:     *");
+        System.out.println("*                                  *");
+        System.out.println("* 1.Babymode                       *");
+        System.out.println("* 2.Fácil                          *");
+        System.out.println("************************************");
     }
 
     public void ventMenu() {
@@ -227,10 +240,10 @@ public class Sesion {
         System.out.println("*       *|||TRES EN RAYA|||*       *");
         System.out.println("*                                  *");
         System.out.println("**********--Opciones--**************");
-        System.out.println("*1. Nueva partida                  *");
-        System.out.println("*2. Ranking                        *");
-        System.out.println("*3. Instrucciones                  *");
-        System.out.println("*4. Salir                          *");
+        System.out.println("* 1. Nueva partida                 *");
+        System.out.println("* 2. Ranking                       *");
+        System.out.println("* 3. Instrucciones                 *");
+        System.out.println("* 4. Salir                         *");
         System.out.println("************************************");
     }
 

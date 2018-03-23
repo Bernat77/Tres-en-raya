@@ -32,8 +32,7 @@ public class IA1 extends IA0 {
                 }
             }
 
-        }
-        
+        }        
         movi.setRow(x);
         movi.setCol(y);
         movi.setBlancas(false);
