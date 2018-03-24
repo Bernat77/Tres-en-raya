@@ -67,6 +67,10 @@ public class Sesion {
                 ia = new IA2();
                 ia.setSesion(this);
                 return ia;
+            case 4:
+                ia = new IA3();
+                ia.setSesion(this);
+                return ia;
         }
 
         return null;
@@ -105,7 +109,7 @@ public class Sesion {
         System.out.println("*Introduce una opción:             *");
         do {
             ia = scan.nextInt();
-            if (ia != 1 && ia != 2 && ia!=3) {
+            if (ia != 1 && ia != 2 && ia != 3 && ia != 4) {
                 System.out.println("Por favor, introduce un número válido.");
             } else {
                 selec = true;
