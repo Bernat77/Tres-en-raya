@@ -7,10 +7,6 @@ public class Movimiento {
     private int row;
     private Jugador jugador;
 
-    Movimiento() {
-
-    }
-
     public void setJugador(Jugador jugador) {
         this.jugador = jugador;
     }

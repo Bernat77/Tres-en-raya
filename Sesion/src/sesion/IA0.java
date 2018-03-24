@@ -11,10 +11,6 @@ package sesion;
  */
 public class IA0 extends Jugador {
 
-    public IA0() {
-
-    }
-
     public Movimiento movimiento(Tablero tablero) {
         int[][] casillas = tablero.getCasillas();
         Movimiento jugada = new Movimiento();
