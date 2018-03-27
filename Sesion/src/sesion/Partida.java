@@ -74,17 +74,32 @@ public class Partida {
                 System.out.println("--Le toca a " + getJugador(0).getNombre() + ".--");
                 Scanner num = new Scanner(System.in);
                 System.out.println("Introduce la fila: ");
-                int row = num.nextInt() - 1;
+                int row;
+                try {
+                    row = num.nextInt() - 1;
+                } catch (InputMismatchException e) {
+                    System.out.println("No has introducido un número.");
+                    ganado = true;
+                    break;
+                }
                 System.out.println("Introduce la columna: ");
-                int col = num.nextInt() - 1;
+                int col;
+                try {
+                    col = num.nextInt() - 1;
+                } catch (InputMismatchException e) {
+                    System.out.println("No has introducido un número.");
+                    ganado = true;
+                    break;
+                }
                 System.out.println();
                 if (tablero.validarMovimiento(getJugador(0).movimiento(row, col))) {
                     tablero.move(getJugador(0).movimiento(row, col));
+                    if (getJugador(1) instanceof IA4) {
+                        ((IA4) getJugador(1)).recalValorEst(getJugador(0).movimiento(row, col));
+                    }
                 } else {
                     ganado = true;
-                    this.sesion.getRanking().upgPartidasJugadas();
-                    System.out.println("Has perdido...");
-                    break;
+                    this.sesion.getRanking().upgPartidasJugadas();                    break;
                 }
             } else if (getJugador(1) instanceof IA0) {
                 System.out.println("Movimiento de la I.A.\n");

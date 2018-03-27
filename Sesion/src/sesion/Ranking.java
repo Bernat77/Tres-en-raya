@@ -63,6 +63,7 @@ public class Ranking {
         System.out.println("*Partidas jugadas:   " + partidasJugadas + "             *");
         System.out.println("*Partidas ganadas:   " + ganadas + "             *");
         System.out.println("*Partidas empatadas: " + empates + "             *");
+        System.out.println("*Partidas perdidas:  " + (partidasJugadas - ganadas - empates) + "              *");
         this.sesion.menuVolver();
 
     }

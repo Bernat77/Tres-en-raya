@@ -17,9 +17,6 @@ public class Jugador {
     private Sesion sesion;
     private String nombre;
 
-    public Jugador() {
-    }
-
     public Sesion getSesion() {
         return sesion;
     }
