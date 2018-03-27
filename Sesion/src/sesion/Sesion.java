@@ -71,6 +71,10 @@ public class Sesion {
                 ia = new IA3();
                 ia.setSesion(this);
                 return ia;
+            case 5:
+                ia = new IA4();
+                ia.setSesion(this);
+                return ia;
         }
 
         return null;
@@ -104,12 +108,19 @@ public class Sesion {
         System.out.println("***********Nueva partida************\n");
         Scanner scan = new Scanner(System.in);
         ventIA();
-        int ia;
+        int ia = -1;
         boolean selec = false;
         System.out.println("*Introduce una opción:             *");
         do {
-            ia = scan.nextInt();
-            if (ia != 1 && ia != 2 && ia != 3 && ia != 4) {
+            try {
+                ia = scan.nextInt();
+
+            } catch (InputMismatchException e) {
+                scan.next();
+                System.out.println("Por favor, introduce un número.");
+                continue;
+            }
+            if (ia != 1 && ia != 2 && ia != 3 && ia != 4 && ia != 5) {
                 System.out.println("Por favor, introduce un número válido.");
             } else {
                 selec = true;
@@ -165,7 +176,13 @@ public class Sesion {
         boolean menu = false;
         int val;
         do {
-            val = num.nextInt();
+            try {
+                val = num.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Por favor, introduce un número.");
+                num.next();
+                continue;
+            }
             if (val != 1 && val != 2 && val != 3 && val != 4) {
                 System.out.println("/!/Introduce un número válido para las opciones/!/:");
 
@@ -211,7 +228,13 @@ public class Sesion {
         boolean menu = false;
         int val;
         do {
-            val = num.nextInt();
+            try {
+                val = num.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Por favor, introduce un número.");
+                num.next();
+                continue;
+            }
             if (val != 1 && val != 2) {
                 System.out.println("/!/Introduce un número válido para las opciones/!/");
             } else {
@@ -240,7 +263,7 @@ public class Sesion {
         System.out.println("* 2.Fácil                          *");
         System.out.println("* 3.Normal                         *");
         System.out.println("* 4.Difícil                        *");
-        System.out.println("* 5.Imposible                      *");
+        System.out.println("* 5.Muy difícil                    *");
         System.out.println("************************************");
     }
 
